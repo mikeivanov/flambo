@@ -29,7 +29,8 @@
                [org.apache.spark/spark-streaming_2.10 "1.3.0"]
                [org.apache.spark/spark-streaming-kafka_2.10 "1.3.0"]
                [org.apache.spark/spark-streaming-flume_2.10 "1.3.0"]
-               [org.apache.spark/spark-sql_2.10 "1.3.0"]]}
+               [org.apache.spark/spark-sql_2.10 "1.3.0"]
+               [org.apache.spark/spark-mllib_2.10 "1.3.0"]]}
              :clojure-1.7
              {:dependencies [[org.clojure/clojure "1.7.0-alpha4"]]}
              :uberjar
