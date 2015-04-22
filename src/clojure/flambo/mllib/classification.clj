@@ -1,4 +1,5 @@
 (ns flambo.mllib.classification
+  (:require [flambo.mllib.linalg :refer [unpack]])
   (:import [org.apache.spark.mllib.classification
             LogisticRegressionWithLBFGS
             LogisticRegressionWithSGD
@@ -111,3 +112,25 @@
 (extend-protocol Algorithm
   SVMWithSGD
   (train [algo rdd] (.run algo (.rdd rdd))))
+
+(defn threshold [model]
+  (.threshold model))
+
+(defn set-threshold! [model threshold]
+  (.setThreshold model threshold))
+
+(defn clear-threshold! [model]
+  (.clearThreshold model))
+
+(defn intercept [model]
+  (.intercept model))
+
+(defn weights [model]
+  (.weights model))
+
+(defn coefficients [model]
+  (into [] (cons (intercept model)
+                 (unpack (weights model)))))
+
+(defn predict [model rdd-or-vector]
+  (.predict model rdd-or-vector))
